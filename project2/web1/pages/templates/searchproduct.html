@@ -1,0 +1,44 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}Search Pages{% endblock %}
+
+{% block content %}
+<style>
+    .contact{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+ 
+  
+        <h1>Search</h1>
+        <section class="section dashboard">
+          <div class="container">
+          <div class="row">
+ 
+    
+        {% for x in search %}
+    <div class="col-sm-3">
+      <div class="probox" >
+        <img src="{% static 'uploads/' %}{{x.pro_img}}" alt="" class="pro-img">
+      </div>
+    <div class="procontent" style="text-align: center;">
+        <h6>{{x.pro_name}}</h6>
+        <h6>Rs.{{x.pro_price}}/-</h6>
+        <a class="btn btn-dark btn-sm" href="/addtocart/{{x.id}}">Add to Cart <i class="bi bi-cart-fill"></i></a>&nbsp;
+        <a class="btn btn-dark btn-sm" href="/addtowishlist/{{x.id}}">Add to <i class="bi bi-heart-fill"></i></a>
+    
+    </div>
+    <br><br><br>
+    </div>
+        {% endfor %}
+   
+          </div>
+        </div> 
+        </div>
+        </section>
+  
+  
+
+    {% endblock %}

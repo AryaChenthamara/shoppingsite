@@ -1,0 +1,57 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}About Pages{% endblock %}
+
+{% block content %}
+<style>
+    .about{
+        color: black;
+        font-weight: bold;
+    }
+    .col-sm-12{
+        width: 80%;
+      
+    }
+</style>
+<br>
+<section>
+    <div class="container my-4">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6 col-md-12 col-sm-12 text-center mb-3 mb-md-0">
+                <div class="inbox">
+                    <img src="https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2022-08/parcel-paper-cartons-with-shopping-cart-logo-trolley-laptop-keyboard-min.jpg" class="img-fluid" alt="ShopeMe Products">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <p class="h3">ShopeMe provides millions of businesses worldwide</p>
+                <p>The all-in-one commerce platform to select their own product as they wish.
+                    All sizes, colors, gadgets, etc... Perfect option for shopping from home.
+                </p>
+            </div>
+        </div>
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6 col-md-12 col-sm-12 text-center order-md-2 mb-3 mb-md-0">
+                <div class="inbox">
+                    <img src="https://media.istockphoto.com/id/1353281818/photo/group-of-businesswomen-during-a-meeting.jpg?s=612x612&w=0&k=20&c=2z9-P9sInaclZnWZWiqZTcBoPH9mEHYTj27T0pNhWNc=" class="img-fluid" alt="Work With The Best">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 order-md-1">
+                <h4>Work With The Best</h4>
+                <p>The best people make the best teams. And we put all
+                    our efforts into finding the right people that fit into
+                    our high-performing inclusive teams. Everyone has a
+                    voice on the table and diversity of thoughts, styles,
+                    and actions is celebrated. From a category leader to a
+                    wishmaster, we are all bound together and guided by
+                    our values of audacity, bias for action, customer-first,
+                    integrity, and inclusion.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+
+    {% endblock %}

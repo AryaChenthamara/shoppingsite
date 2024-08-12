@@ -1,0 +1,64 @@
+{%  extends 'adminmaster.html' %}
+{% load static %}
+
+{% block tittle %}Order list{% endblock %}
+
+{% block content %}
+<style>
+    .dashboart{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+<h1>Admin order list</h1>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">OrderId</th>
+                        <th scope="col">Coustomer</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Details</th>
+        
+                      </tr>
+                    </thead>
+ 
+    {% for x in order %}
+                    <tbody>
+                      <tr>                 
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>
+                           <p>{{x.id}}</p> 
+                        </td>
+                        <td>  
+                              <p class="checkoutlist">{{ x.pro_user }}</p>
+                        </td>
+                               
+                        <td>                                       
+                            <img src="{% static 'uploads/' %}{{x.order_img}}"  alt="" class="cart-img">                      
+                        <td>
+                            <p>{{x.order_name}}</p>
+                            <p>Rs.{{x.order_price}}/-</p>
+                            <p>{{x.pay_method}}</p>
+
+                        </td>
+
+                      </tr>
+                      
+                    </tbody>
+                
+                 
+     {% endfor %} 
+ 
+                  </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

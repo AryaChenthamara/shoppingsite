@@ -1,0 +1,43 @@
+{%  extends 'master.html' %}
+{% load static %}
+
+{% block tittle %}Contact Pages{% endblock %}
+
+{% block content %}
+<style>
+    .login{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+    
+ <section id="loginsec" class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <h1>Login</h1>
+                <form action="/login" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                      <label for="" class="form-label">LoginID:</label>
+                      <input type="text" class="form-control" id="logid" placeholder="Enter loginID" name="login_name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="" class="form-label">Password:</label>
+                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="login_password">
+                    </div>
+                    <div class="form-check mb-3">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+ </section>
+ 
+      
+   
+  {% endblock %}

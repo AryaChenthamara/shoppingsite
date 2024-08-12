@@ -1,0 +1,46 @@
+{%  extends 'master.html' %}
+{% load static %}
+
+{% block tittle %}Contact Pages{% endblock %}
+
+{% block content %}
+<style>
+    .registration{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+<section id="regsec" class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1>Registration</h1>
+                <form action="/registration" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">UserID:</label>
+                        <input type="text" class="form-control" id="regid" placeholder="Enter userID" name="reg_userid">
+                      
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="reg_password">
+                    </div>
+                  
+                    <div class="form-check mb-3">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            
+               
+                
+                  
+            </div>
+        </div>
+    </div>
+</section>
+   
+  {% endblock %}

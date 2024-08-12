@@ -1,0 +1,58 @@
+{%  extends 'adminmaster.html' %}
+{% load static %}
+
+{% block tittle %}Admin product{% endblock %}
+
+{% block content %}
+<style>
+  .product{
+      color: black;
+      font-weight: bold;
+  }
+</style>
+
+        <h1>Products</h1>
+
+{% for x in products %}
+<section>
+  <div class="container">
+    <div class="row">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th></th>
+      
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="{% static 'uploads/' %}{{x.pro_img}}" alt="" class="adminproimg"  >  </td>
+            <td>{{x.pro_name}}</td>
+            <td>Rs.{{x.pro_price}}/-</td>
+            <td> <a class="btn btn-dark btn-sm" href="/editproduct/{{x.id}}">Edit</a> </td>
+          
+      
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+{% endfor %}
+  
+
+    {% endblock %}
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  

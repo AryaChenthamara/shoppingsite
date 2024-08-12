@@ -1,0 +1,90 @@
+{%  extends 'master.html' %}
+{% load static %}
+
+{% block tittle %}order{% endblock %}
+
+{% block content %}
+<style>
+    .cart{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h1>Order</h1>
+            <div class="sec">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            {% for x in order %}
+                            <div class="carbox">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="carbox1">
+                                            <img src="{% static 'uploads/' %}{{x.order_img}}" alt="" class="cart-img">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="carbox2">                             
+                                            <p>{{x.order_name}}</p>
+                                            <p>Rs.{{x.order_price}}/-</p>
+                                            <form action="/addtocart/{{x.order_id}}" class="cart d-inline-block">
+                                                <button class="subbtn btn btn-secondary" type="submit" name="rem">-</button>
+                                            </form>
+                                            <input type="text" name="order_qty" value="{{x.order_qty}}" class="qtybox d-inline-block">
+                                            <form action="/addtocart/{{x.order_id}}" class="cart d-inline-block">
+                                                <button class="addbtn btn btn-secondary" type="submit" name="add">+</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="carbox3">
+                                            <p>Rs.{{x.order_tot}}/-</p>
+                                            <a class="remove" href="/delorder/{{x.id}}">Remove <i class="bi bi-trash3"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}                  
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="checktot text-end me-3">Grand Total  &nbsp;</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="checktot text-center me-3"> Rs.{{gtot}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="/placeorder">
+                                            <button type="button" class="btn btn-success btn-lg btn-block text-center w-100">Place Order</button>
+                                        </a>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                            <div class="carbox4">    
+                                <h3>Checkout list</h3>
+                                {% for x in adrs %}
+                                <p class="checkoutlist">{{ x }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+    </div> 
+</section>
+
+
+
+{% endblock %}

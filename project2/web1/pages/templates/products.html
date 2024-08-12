@@ -1,0 +1,80 @@
+{%  extends 'master.html' %}
+{% load static %}
+
+{% block tittle %}Products Page{% endblock %}
+
+{% block content %}
+<style>
+  .product{
+      color: black;
+      font-weight: bold;
+  }
+</style>
+  <!-- ======= Sidebar ======= -->
+<section>
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+  
+
+      </li><!-- End Components Nav -->
+
+     
+      <li class="h4">Category</li>
+      <br>
+    {%for y in categories %}
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/products?cid={{ y.id}}">
+          
+          <span>{{ y.cat_name }}</span>
+        </a>
+      </li>  
+      {% endfor %}
+    <!-- End Profile category -->
+
+    </ul>
+
+  </aside>
+</section><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <section class="section dashboard">
+      <div class="container">
+      <div class="row">
+
+        <!-- End Left side columns -->
+
+        <!-- Right side columns -->
+        <h1>Products</h1>
+
+{% for x in products %}
+<div class="col-lg-3 col-md-6 col-sm-12">
+<div class="probox" >
+    <img src="{% static 'uploads/' %}{{x.pro_img}}" alt="" class="pro-img">
+</div>
+<div class="procontent" style="text-align: center;">
+    <h3>{{x.pro_name}}</h3>
+    <h4>Rs.{{x.pro_price}}/-</h4>
+    <a class="btn btn-dark btn-sm" href="/addtocart/{{x.id}}">Add to Cart <i class="bi bi-cart-fill"></i></a>&nbsp;
+    <a class="btn btn-dark btn-sm" href="/addtowishlist/{{x.id}}">Add to <i class="bi bi-heart-fill"></i></a>
+
+</div>
+<br><br><br>
+</div>
+
+{% endfor %}
+      </div>
+    </div> 
+    </div>
+    </section>
+
+    {% endblock %}
+  </main><!-- End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  

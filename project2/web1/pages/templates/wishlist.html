@@ -1,0 +1,89 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+<style>
+    .wishlist{
+        color: black;
+        font-weight: bold;
+      
+    }
+</style>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Wishlist</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="sec">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-6 col-md-3">
+                <div class="inboxwish"> 
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish">
+                    <p class="parawish">Product name</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish">
+                    <p class="parawish">Product price</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish">
+                    <p class="parawish">Remove</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="sec">
+    <div class="container">
+        <div class="row text-center">
+            {% for x in wishlist %}
+            <div class="col-6 col-md-3">
+                <div class="inboxwish2">
+                    <img src="{% static 'uploads/' %}{{x.pro_img}}" alt="" class="wish-img img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish2">
+                    <p>{{x.pro_name}}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish2">
+                    <p>Rs.{{x.pro_price}}/-</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="inboxwish2">
+                    <a class="removewish" href="/delwish/{{x.id}}">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    {% endblock %}

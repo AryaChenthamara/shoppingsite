@@ -1,0 +1,86 @@
+{%  extends 'master.html' %}
+{% load static %}
+
+{% block tittle %}Cart{% endblock %}
+
+{% block content %}
+<style>
+    .cart{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+
+<section>
+    <div class="container">
+        <div class="row">
+           
+     
+<h1>Cart</h1>
+
+
+        <div class="sec">
+            <div class="containercr">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 ">
+      {% for x in cart %}
+                        <div class="carbox">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 col-sm-12">
+                                        <div class="carbox1">
+                                            <img src="{% static 'uploads/' %}{{x.pro_img}}"  alt="" class="cart-img">
+                                        </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="carbox2">                             
+                                            <p>{{x.pro_name}}</p>
+                                            <p>Rs.{{x.pro_price}}/-</p>
+                                        <form action="/addtocart/{{x.pro_id}}" class="cart">
+                                            <button class="subbtn" type="submit" name="rem">-</button>
+                                        </form>
+
+                                            <input type="text" name="pro_qty" value="{{x.pro_qty}}" class="qtybox">
+                                        <form action="/addtocart/{{x.pro_id}}" class="cart" >
+                                            
+                                            <button class="addbtn" type="submit" name="add">+</button>
+                                        </form>
+                                    </div>
+                                </div>    <div class="col-sm-4">
+                                    <div class="carbox3">
+                                        <p>Rs.{{x.pro_tot}}/-</p>
+                                        <a class="remove" href="/delcart/{{x.id}}">Remove <i class="bi bi-trash3"></i></a>
+                                    </div>
+                            </div>
+
+                            </div>
+                        </div>
+                        <br><br>
+      {% endfor %}
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="carbox4">    
+                            <p class="smry">Order Summary</p>
+                            <p>Order total &nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.{{gtot}}</p>
+                            <p >Shipping &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ship">Rs.120</span><span class="free">&nbsp;&nbsp;Free</span></p>
+                           <hr>
+                            <p>Total amount : &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.{{gtot}}</p>
+                           <a href="/checkout" > <button type="button" class="btn btn-primary">Proceed to Checkout</button></a>
+                          
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </div>
+        </div>
+     <br><br>
+   
+   
+</div> 
+
+</div>
+</div>
+</section>
+
+
+
+{% endblock %}

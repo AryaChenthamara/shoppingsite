@@ -1,0 +1,41 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}Contact Pages{% endblock %}
+
+{% block content %}
+<style>
+    .contact{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+   
+    </form>
+    <section id="loginsec" class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <h1>Contact</h1>
+                    <form action="/login" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3 mt-3">
+                          <label for="" class="form-label">Enter your name:</label>
+                          <input type="text" class="form-control" id="logid" placeholder="Enter" name="name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="" class="form-label">Enter your email:</label>
+                          <input type="email" class="form-control" id="pwd" placeholder="Enter " name="email">
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="" class="form-label">Enter your message:</label>
+                            <input type="text" class="form-control" id="logid" placeholder="Enter" name="name">
+                          </div>
+                       
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+     </section>
+    {% endblock %}

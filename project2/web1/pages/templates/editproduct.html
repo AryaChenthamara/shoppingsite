@@ -1,0 +1,43 @@
+{%  extends 'adminmaster.html' %} 
+{% load static %}
+
+{% block title %}Edit Pages{% endblock %}
+
+{% block content %}
+<style>
+    .addproduct{
+        color: black;
+        font-weight: bold;
+    }
+</style>
+    <h1>Edit Product</h1>
+  <br><br>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ product.id }}">
+        <img src="{% static 'uploads/' %}{{product.pro_img}}" alt="" class="adminproimg"  > 
+        <br><br>
+        <label for="">Product Name:</label>
+        <input type="text" name="pro_name" value="{{ product.pro_name }}"><br><br>
+        <label for="">Product Price:</label>
+        <input type="text" name="pro_price" value="{{ product.pro_price }}"><br><br>
+        <label for="">Product Image:</label>
+        <input type="file" name="pro_img"><br><br>
+        <label for="">Product Category:</label>
+        <select name="pro_cat" id="">
+            {% for x in cats %}
+            {% if x.id == product.pro_cat %}
+            <option value="{{ x.id }}" selected>{{ x.cat_name }}</option>
+            {% else %}
+            <option value="{{ x.id }}">{{ x.cat_name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        
+        <button type="submit">Submit</button>
+        
+    </form>
+    <br><br>
+    
+
+{% endblock %}
